@@ -49,7 +49,6 @@ import {
   Eye,
   FileKey
 } from 'lucide-react';
-import { Helmet } from 'react-helmet-async';
 
 /* --- DATA & CONTENT --- */
 const DATA = {
@@ -121,11 +120,8 @@ const DATA = {
       stats: ["1k+ PRs/Day", "60% Cache Hit", "99.2% Tx Success"],
       stack: ["Node.js", "Redis", "BullMQ", "Docker", "GitHub API"],
       status: "Live",
-      image: "/peer2.png",
-      links: { 
-        live: "https://peer-uii.onrender.com/", 
-        github: "https://github.com/anirbansantra748/peer" 
-      }
+      image: "/peer.png",
+      links: { live: "#", github: "#" }
     },
     {
       title: "InterViewX",
@@ -135,10 +131,7 @@ const DATA = {
       stack: ["Node.js", "MongoDB", "Socket.IO", "EJS", "Tailwind"],
       status: "Live",
       image: "/interviewx.png",
-      links: { 
-        live: "https://interviewx-dgsc.onrender.com/home", 
-        github: "https://github.com/anirbansantra748/InterViewXX" 
-      }
+      links: { live: "#", github: "#" }
     },
     {
       title: "Hailthyfy",
@@ -148,10 +141,7 @@ const DATA = {
       stack: ["Node.js", "FastAPI", "TensorFlow", "Redis", "Docker"],
       status: "Live",
       image: "/helthyfy.png",
-      links: { 
-        live: "https://hailthyfy-4.onrender.com/", 
-        github: "https://github.com/anirbansantra748/hailthyfy" 
-      }
+      links: { live: "#", github: "#" }
     },
     {
       title: "Wonderlust",
@@ -161,23 +151,17 @@ const DATA = {
       stack: ["Node.js", "Express", "MongoDB", "EJS", "Leaflet"],
       status: "Live",
       image: "/wonderlust.png",
-      links: { 
-        live: "https://wanderlust-kpw6.onrender.com/listings", 
-        github: "https://github.com/anirbansantra748/Wonderlust" 
-      }
+      links: { live: "#", github: "#" }
     },
     {
-      title: "SkillIssu",
+      title: "Bookify",
       category: "Education • 2024",
-      desc: "Skill assessment platform with coding challenges, automated testing, and progress tracking for developers.",
-      stats: ["Auto Testing", "Progress Tracking", "Challenges"],
-      stack: ["React", "Node.js", "MongoDB", "Express"],
+      desc: "Library management and book rental system with advanced search, recommendation engine, and user reading analytics.",
+      stats: ["Smart Search", "Recommendations", "Analytics"],
+      stack: ["Java", "Spring Boot", "MySQL", "Thymeleaf"],
       status: "Live",
       image: "/bookify.png",
-      links: { 
-        live: "https://skillissu-11a3.onrender.com/home", 
-        github: "https://github.com/anirbansantra748/SkillIssu" 
-      }
+      links: { live: "#", github: "#" }
     },
     {
       title: "Game of Life",
@@ -187,36 +171,7 @@ const DATA = {
       stack: ["HTML5", "CSS3", "JavaScript", "Canvas API"],
       status: "Live",
       image: "/gameoflife.png",
-      links: { 
-        live: "https://anirbansantra748.github.io/gameOfLife/", 
-        github: "https://github.com/anirbansantra748/gameOfLife" 
-      }
-    },
-    {
-      title: "NightSky",
-      category: "Astronomy • 2024",
-      desc: "Astronomy application with star mapping, celestial event tracking, and educational content about the universe.",
-      stats: ["Star Map", "Celestial Events", "Educational"],
-      stack: ["Three.js", "WebGL", "Node.js"],
-      status: "Live",
-      image: "/nightsky.png",
-      links: { 
-        live: "https://nightsky-dvhx.onrender.com/home", 
-        github: "https://github.com/anirbansantra748/NightSky" 
-      }
-    },
-    {
-      title: "Mini CRM",
-      category: "Business • 2024",
-      desc: "Customer Relationship Management system with contact management, deal tracking, and analytics dashboard.",
-      stats: ["Contact Management", "Deal Tracking", "Analytics"],
-      stack: ["React", "Express", "MongoDB"],
-      status: "Live",
-      image: "/minicrm.png",
-      links: { 
-        live: "https://mini-crm-1-85lu.onrender.com", 
-        github: "https://github.com/anirbansantra748/mini-crm" 
-      }
+      links: { live: "#", github: "#" }
     }
   ],
   openSource: [
@@ -228,8 +183,7 @@ const DATA = {
       gitStatus: ["✅ Health API online", "🏥 Patient system ready", "📊 Analytics dashboard"],
       desc: "AI-driven healthcare platform with patient journey mapping, symptom analysis, and telemedicine features",
       stats: { stars: 47, forks: 12, commits: 234 },
-      stack: ["Node.js", "MongoDB", "D3.js"],
-      github: "https://github.com/anirbansantra748/hailthyfy"
+      stack: ["Node.js", "MongoDB", "D3.js"]
     },
     {
       name: "TicketBookingSystem",
@@ -239,8 +193,7 @@ const DATA = {
       gitStatus: ["🎫 Booking system live", "💳 Payment integrated", "⚡ Real-time updates"],
       desc: "Full-stack ticket booking platform with real-time seat selection and payment integration",
       stats: { stars: 32, forks: 8, commits: 187 },
-      stack: ["Express.js", "MongoDB", "Socket.IO"],
-      github: "https://github.com/anirbansantra748/TicketBookingSystem"
+      stack: ["Express.js", "MongoDB", "Socket.IO"]
     },
     {
       name: "chess_game",
@@ -250,8 +203,7 @@ const DATA = {
       gitStatus: ["♟️ AI opponent ready", "🎯 Move validation: OK", "🏆 Game analysis active"],
       desc: "Interactive chess game with AI opponent, move validation, and game analysis features",
       stats: { stars: 73, forks: 25, commits: 156 },
-      stack: ["HTML5", "CSS3", "JavaScript"],
-      github: "https://github.com/anirbansantra748/chess_game"
+      stack: ["HTML5", "CSS3", "JavaScript"]
     },
     {
       name: "SkillIssu",
@@ -261,8 +213,7 @@ const DATA = {
       gitStatus: ["📚 Challenges loaded", "⚡ Auto-testing: ON", "📈 Progress tracking"],
       desc: "Skill assessment platform with coding challenges, automated testing, and progress tracking",
       stats: { stars: 56, forks: 19, commits: 298 },
-      stack: ["React", "Node.js", "MongoDB"],
-      github: "https://github.com/anirbansantra748/SkillIssu"
+      stack: ["React", "Node.js", "MongoDB"]
     },
     {
       name: "InterViewXX",
@@ -272,8 +223,7 @@ const DATA = {
       gitStatus: ["🎤 Mock interviews: ON", "💼 Career prep ready", "📊 Analytics enabled"],
       desc: "Interview preparation platform with mock interviews, coding challenges, and performance analytics",
       stats: { stars: 41, forks: 14, commits: 145 },
-      stack: ["TypeScript", "React", "Node.js"],
-      github: "https://github.com/anirbansantra748/InterViewXX"
+      stack: ["TypeScript", "React", "Node.js"]
     },
     {
       name: "VideoTube",
@@ -283,8 +233,7 @@ const DATA = {
       gitStatus: ["🎬 Video streaming: UP", "🔐 Auth system ready", "📱 Social features ON"],
       desc: "Video streaming platform with user authentication, video upload, and social features",
       stats: { stars: 89, forks: 31, commits: 267 },
-      stack: ["Node.js", "MongoDB", "FFmpeg"],
-      github: "https://github.com/anirbansantra748/VideoTube"
+      stack: ["Node.js", "MongoDB", "FFmpeg"]
     },
     {
       name: "Re_Pharma",
@@ -294,8 +243,7 @@ const DATA = {
       gitStatus: ["💊 Inventory synced", "📋 Prescriptions ready", "💰 Billing system UP"],
       desc: "Pharmacy management system with inventory tracking, prescription management, and billing",
       stats: { stars: 35, forks: 9, commits: 178 },
-      stack: ["Python", "Django", "PostgreSQL"],
-      github: "https://github.com/anirbansantra748/Re_Pharma"
+      stack: ["Python", "Django", "PostgreSQL"]
     },
     {
       name: "NightSky",
@@ -305,8 +253,7 @@ const DATA = {
       gitStatus: ["🌌 Star map loaded", "🔭 Celestial events", "📚 Educational content"],
       desc: "Astronomy application with star mapping, celestial event tracking, and educational content",
       stats: { stars: 68, forks: 22, commits: 201 },
-      stack: ["Three.js", "WebGL", "Node.js"],
-      github: "https://github.com/anirbansantra748/NightSky"
+      stack: ["Three.js", "WebGL", "Node.js"]
     },
     {
       name: "KitabiKira",
@@ -316,8 +263,7 @@ const DATA = {
       gitStatus: ["📚 Library system: UP", "🔍 Search optimized", "🤖 Recommendations ON"],
       desc: "Book rental and library management system with advanced search and recommendation engine",
       stats: { stars: 43, forks: 16, commits: 189 },
-      stack: ["Java", "Spring Boot", "MySQL"],
-      github: "https://github.com/anirbansantra748/KitabiKira"
+      stack: ["Java", "Spring Boot", "MySQL"]
     }
   ],
   architecture: {
@@ -366,11 +312,11 @@ const DATA = {
   },
   achievements: [
     { 
-      title: "Winner - EduSands Hacks Hackathon", 
-      issuer: "EduSands (Devpost)", 
-      date: "2024",
-      desc: "Won 1st place among 50+ teams for building InclusiveHorizon, an innovative educational platform promoting accessibility and inclusion.",
-      skills: ["Innovation", "Teamwork", "Problem Solving"],
+      title: "Top 25 in Rebase <01>", 
+      issuer: "GDSC IIIT Kalyani", 
+      date: "Achievement",
+      desc: "Recognizes outstanding talent and dedication for securing a top 25 position in the prestigious Rebase <01> hackathon.",
+      skills: ["Problem Solving", "Innovation"],
       type: "Achievement",
       color: "gold",
       image: "/rebase.png" 
@@ -593,7 +539,7 @@ const TypewriterCode = () => {
 
 const Hero = () => {
   return (
-    <section id="home" className="relative pt-24 pb-20 lg:pt-32 lg:pb-28 overflow-hidden">
+    <section id="home" className="relative pt-36 pb-28 lg:pt-52 lg:pb-36 overflow-hidden">
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]"></div>
       <div className="absolute top-0 left-0 right-0 h-64 bg-gradient-to-b from-emerald-500/5 to-transparent"></div>
       
@@ -626,14 +572,6 @@ const Hero = () => {
               <a href="#projects" className="px-8 py-3 bg-emerald-500 hover:bg-emerald-400 text-black font-bold rounded-lg transition-all flex items-center gap-2">
                 View Projects <ChevronRight size={20} />
               </a>
-              <a 
-                href="/Anirban_Santra_Resume.pdf" 
-                download="Anirban_Santra_Resume.pdf"
-                className="px-8 py-3 bg-white/5 border border-white/10 hover:border-emerald-500 text-white rounded-lg transition-all font-medium flex items-center gap-2"
-              >
-                <Download size={20} />
-                Download Resume
-              </a>
               <a href="#contact" className="px-8 py-3 bg-white/5 border border-white/10 hover:border-white/30 text-white rounded-lg transition-all font-medium">
                 Contact Me
               </a>
@@ -662,7 +600,7 @@ const Hero = () => {
                 <div className="ml-4 text-xs text-gray-500 font-mono">about.js</div>
               </div>
               {/* Added overflow-x-hidden to prevent horizontal scrolling */}
-              <div className="p-6 h-[500px] overflow-y-auto overflow-x-hidden custom-scrollbar">
+              <div className="p-6 h-[400px] overflow-y-auto overflow-x-hidden custom-scrollbar">
                 <div className="text-gray-500 font-mono text-sm mb-2">$ node about.js --execute</div>
                 <TypewriterCode />
                 <div className="mt-4 text-emerald-500 font-mono text-sm">
@@ -818,119 +756,45 @@ const SkillsSection = () => {
   );
 };
 
-const GitHubStatsSection = () => {
-  return (
-    <section className="py-24 bg-[#0a0a0a] border-t border-white/5 relative overflow-hidden">
-      {/* Background ambience */}
-      <div className="absolute top-0 right-0 w-1/3 h-full bg-emerald-500/5 blur-3xl rounded-full pointer-events-none"></div>
-
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl font-bold text-white mb-4">
-            Coding <span className="text-emerald-400">Activity</span>
-          </h2>
-          <p className="text-gray-400 font-mono text-sm">
-            &gt; LIVE DATA FROM GITHUB & LEETCODE...
-          </p>
-        </div>
-
-        <div className="grid lg:grid-cols-2 gap-8">
-          {/* GitHub Stats Card */}
-          <div className="bg-[#0d1117] border border-gray-800 rounded-xl p-6 hover:border-emerald-500/30 transition-all duration-300">
-            <div className="flex items-center gap-2 mb-4">
-              <Github className="text-emerald-400" size={24} />
-              <h3 className="text-xl font-bold text-white">GitHub Statistics</h3>
-            </div>
-            <img
-              src="https://github-readme-stats.vercel.app/api?username=anirbansantra748&show_icons=true&theme=dark&hide_border=true&bg_color=0d1117&title_color=10b981&icon_color=10b981&text_color=ffffff"
-              alt="GitHub Stats"
-              className="w-full rounded-lg"
-              loading="lazy"
-            />
-          </div>
-
-          {/* LeetCode Stats Card */}
-          <div className="bg-[#0d1117] border border-gray-800 rounded-xl p-6 hover:border-emerald-500/30 transition-all duration-300">
-            <div className="flex items-center gap-2 mb-4">
-              <Code className="text-emerald-400" size={24} />
-              <h3 className="text-xl font-bold text-white">LeetCode Progress</h3>
-            </div>
-            <img
-              src="https://leetcard.jacoblin.cool/Anirbansantra?theme=dark&font=Noto%20Sans&ext=heatmap"
-              alt="LeetCode Stats"
-              className="w-full rounded-lg"
-              loading="lazy"
-            />
-          </div>
-        </div>
-
-        {/* GitHub Contribution Chart */}
-        <div className="mt-8 bg-[#0d1117] border border-gray-800 rounded-xl p-6 hover:border-emerald-500/30 transition-all duration-300">
-          <div className="flex items-center gap-2 mb-4">
-            <GitBranch className="text-emerald-400" size={24} />
-            <h3 className="text-xl font-bold text-white">Contribution History</h3>
-          </div>
-          <img
-            src="https://ghchart.rshah.org/10b981/anirbansantra748"
-            alt="GitHub Contribution Chart"
-            className="w-full rounded-lg"
-            loading="lazy"
-          />
-        </div>
-
-        {/* Quick Stats */}
-        <div className="mt-8 grid grid-cols-2 sm:grid-cols-4 gap-4">
-          <div className="bg-[#0d1117] border border-gray-800 rounded-xl p-4 text-center hover:border-emerald-500/30 transition-all duration-300">
-            <div className="text-2xl font-bold text-emerald-400 mb-1">400+</div>
-            <div className="text-sm text-gray-400">LeetCode Problems</div>
-          </div>
-          <div className="bg-[#0d1117] border border-gray-800 rounded-xl p-4 text-center hover:border-emerald-500/30 transition-all duration-300">
-            <div className="text-2xl font-bold text-emerald-400 mb-1">~30</div>
-            <div className="text-sm text-gray-400">Public Repos</div>
-          </div>
-          <div className="bg-[#0d1117] border border-gray-800 rounded-xl p-4 text-center hover:border-emerald-500/30 transition-all duration-300">
-            <div className="text-2xl font-bold text-emerald-400 mb-1">1000+</div>
-            <div className="text-sm text-gray-400">Contributions</div>
-          </div>
-          <div className="bg-[#0d1117] border border-gray-800 rounded-xl p-4 text-center hover:border-emerald-500/30 transition-all duration-300">
-            <div className="text-2xl font-bold text-emerald-400 mb-1">6+</div>
-            <div className="text-sm text-gray-400">Major Projects</div>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-};
-
 const ProjectCard = ({ project, index }) => (
   <div
     className="group relative bg-[#121212] rounded-2xl overflow-hidden border border-white/5 hover:border-emerald-500/50 transition-all duration-500 hover:shadow-[0_0_30px_rgba(16,185,129,0.1)] flex flex-col h-full"
     style={{ animationDelay: `${index * 100}ms` }}
   >
-    {/* Image Section */}
-    <div className="h-48 bg-gray-900 relative overflow-hidden">
+    {/* Image/Gradient Placeholder - Enterprise look */}
+    <div className="h-48 bg-gray-900 relative overflow-hidden group-hover:from-gray-900 group-hover:to-emerald-950/30 transition-colors duration-500">
+      
+      {/* Project Image */}
       <img 
         src={project.image} 
         alt={project.title}
-        loading="lazy"
-        className="w-full h-full object-cover opacity-60 group-hover:opacity-80 transition-opacity duration-500"
+        className="w-full h-full object-cover opacity-60 group-hover:opacity-80 transition-opacity duration-500 scale-100 group-hover:scale-110 transition-transform"
       />
+      
+      {/* Overlay Gradient */}
       <div className="absolute inset-0 bg-gradient-to-t from-[#121212] via-transparent to-transparent"></div>
 
-      {/* Status Badge */}
-      <div className="absolute top-4 right-4">
-        <span className="px-2 py-1 bg-black/70 backdrop-blur-md border border-white/10 rounded text-[10px] font-mono text-emerald-400 flex items-center gap-1">
-          <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
-          {project.status}
-        </span>
+      {/* Floating Status Badge */}
+      <div className="absolute top-4 right-4 flex gap-2">
+         <span className="px-2 py-1 bg-black/70 backdrop-blur-md border border-white/10 rounded text-[10px] font-mono text-emerald-400 flex items-center gap-1 shadow-lg">
+            <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+            {project.status}
+         </span>
+      </div>
+
+      {/* Category Icon */}
+      <div className="absolute bottom-4 left-4">
+        <div className="p-3 bg-black/60 backdrop-blur-md rounded-xl border border-white/10 shadow-lg group-hover:scale-110 transition-transform duration-300">
+           <Zap className="text-emerald-500" size={24} />
+        </div>
       </div>
     </div>
 
-    {/* Content Section */}
     <div className="p-6 flex-1 flex flex-col bg-[#121212]">
       <div className="mb-4">
-        <div className="text-xs font-bold text-emerald-500 uppercase tracking-widest mb-2">
-          {project.category}
+        <div className="text-xs font-bold text-emerald-500 uppercase tracking-widest mb-2 flex items-center gap-2">
+           <span className="w-4 h-[1px] bg-emerald-500"></span>
+           {project.category}
         </div>
         <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-emerald-400 transition-colors">{project.title}</h3>
         <p className="text-gray-400 text-sm leading-relaxed mb-4 line-clamp-3">
@@ -938,31 +802,32 @@ const ProjectCard = ({ project, index }) => (
         </p>
       </div>
 
-      {/* Stats Grid */}
-      <div className="grid grid-cols-3 gap-2 mb-6 bg-[#0a0a0a] rounded-lg p-3 border border-white/5">
+      {/* Enterprise Stats Grid */}
+      <div className="grid grid-cols-3 gap-2 mb-6 bg-[#0a0a0a] rounded-lg p-3 border border-white/5 shadow-inner">
         {project.stats.map((stat, i) => (
           <div key={i} className="text-center">
-            <div className="text-xs font-bold text-white">{stat}</div>
+            <div className="text-sm font-bold text-white mb-0.5">{stat.split(' ')[0]}</div>
+            <div className="text-[9px] text-gray-500 uppercase tracking-tight font-medium">{stat.split(' ').slice(1).join(' ')}</div>
           </div>
         ))}
       </div>
 
-      {/* Tech Stack */}
+      {/* Tech Stack Pills */}
       <div className="flex flex-wrap gap-2 mb-6 mt-auto">
         {project.stack.map((tech) => (
-          <span key={tech} className="px-2 py-1 bg-white/5 hover:bg-white/10 border border-white/10 rounded-md text-xs text-gray-400 font-mono transition-all">
+          <span key={tech} className="px-2.5 py-1 bg-[#1a1a1a] text-gray-400 text-[10px] rounded border border-white/5 font-mono hover:border-emerald-500/30 hover:text-white transition-colors">
             {tech}
           </span>
         ))}
       </div>
 
-      {/* Action Buttons */}
+      {/* Actions */}
       <div className="flex items-center gap-3 pt-5 border-t border-white/5 mt-auto">
-        <a href={project.links.live} target="_blank" rel="noopener noreferrer" className="flex-1 py-3 bg-white text-black font-bold text-sm rounded-lg hover:bg-emerald-400 transition-all flex items-center justify-center gap-2">
-          Live Demo <ExternalLink size={16} />
+        <a href={project.links?.live} className="flex-1 py-3 bg-white text-black font-bold text-sm rounded-lg hover:bg-emerald-400 hover:shadow-[0_0_20px_rgba(16,185,129,0.3)] transition-all flex items-center justify-center gap-2 group/btn">
+           Live Demo <ArrowUpRight size={16} className="group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-transform"/>
         </a>
-        <a href={project.links.github} target="_blank" rel="noopener noreferrer" className="px-4 py-3 bg-transparent border border-gray-700 text-white rounded-lg hover:border-white transition-all flex items-center justify-center">
-          <Github size={20} />
+        <a href={project.links?.github} className="px-4 py-3 bg-transparent border border-gray-700 text-white rounded-lg hover:border-white hover:bg-white/5 transition-all flex items-center justify-center group/git">
+           <Github size={20} className="group-hover/git:scale-110 transition-transform"/>
         </a>
       </div>
     </div>
@@ -1235,39 +1100,6 @@ const ArchitectureVisualizer = () => {
           </div>
        </div>
 
-        {/* Fullscreen Diagram Modal */}
-        {showDiagram && (
-          <div 
-            className="fixed inset-0 z-50 bg-black/95 backdrop-blur-sm flex items-center justify-center p-4 animate-fade-in"
-            onClick={() => setShowDiagram(false)}
-          >
-            <div className="relative w-full h-full max-w-7xl max-h-[90vh] flex items-center justify-center">
-              {/* Close Button */}
-              <button 
-                onClick={() => setShowDiagram(false)}
-                className="absolute top-4 right-4 z-50 p-3 bg-red-500/10 hover:bg-red-500 border border-red-500/50 hover:border-red-500 rounded-lg text-red-400 hover:text-white transition-all group"
-                aria-label="Close"
-              >
-                <X size={24} className="group-hover:rotate-90 transition-transform duration-300" />
-              </button>
-
-              {/* Diagram Title */}
-              <div className="absolute top-4 left-4 z-50 bg-black/70 backdrop-blur-md border border-emerald-500/30 rounded-lg px-4 py-2">
-                <h3 className="text-white font-bold font-mono">{activeSystem.title}</h3>
-              </div>
-
-              {/* Image */}
-              <img 
-                src={activeSystem.image} 
-                alt={activeSystem.title}
-                className="max-w-full max-h-full object-contain rounded-lg shadow-2xl"
-                onClick={(e) => e.stopPropagation()}
-              />
-            </div>
-          </div>
-        )}
-
-
        <style>{`
           @keyframes scan {
             0% { top: 0%; opacity: 0; }
@@ -1279,13 +1111,6 @@ const ArchitectureVisualizer = () => {
              from { width: 0%; }
              to { width: 100%; }
           }
-           @keyframes fade-in {
-             from { opacity: 0; }
-             to { opacity: 1; }
-           }
-           .animate-fade-in {
-             animation: fade-in 0.2s ease-out;
-           }
        `}</style>
     </div>
   );
@@ -1621,8 +1446,7 @@ const Footer = () => (
       
       <div className="flex gap-6">
         <a href="https://github.com/anirbansantra748" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors"><Github size={20} /></a>
-        <a href="https://www.linkedin.com/in/anirban-santra-333074239/" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-blue-400 transition-colors"><Linkedin size={20} /></a>
-        <a href="https://leetcode.com/u/Anirbansantra/" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-orange-400 transition-colors" title="LeetCode"><Code size={20} /></a>
+        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-blue-400 transition-colors"><Linkedin size={20} /></a>
         <a href="mailto:anirbansantra748@gmail.com" className="text-gray-400 hover:text-emerald-400 transition-colors"><Mail size={20} /></a>
       </div>
     </div>
@@ -1634,34 +1458,6 @@ export default function App() {
 
   return (
     <div className="bg-[#0a0a0a] min-h-screen text-gray-300 font-sans selection:bg-emerald-500/30">
-      {/* SEO Meta Tags */}
-      <Helmet>
-        <title>Anirban Santra - Full Stack Software Engineer | Backend Specialist</title>
-        <meta name="description" content="Full Stack Software Engineer with 1+ years experience specializing in Node.js, microservices, and distributed systems. Building scalable platforms with React, MongoDB, Redis, and Kafka." />
-        <meta name="keywords" content="Full Stack Developer, Backend Engineer, Node.js, React, Microservices, Distributed Systems, System Design, LeetCode, Kolkata, Software Engineer, India" />
-        <meta name="author" content="Anirban Santra" />
-        
-        {/* Open Graph / Facebook */}
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://portfolio-me-w31y.vercel.app/" />
-        <meta property="og:title" content="Anirban Santra - Full Stack Software Engineer" />
-        <meta property="og:description" content="Backend-focused engineer skilled in Node.js, Java, and distributed system design. 400+ LeetCode problems solved." />
-        <meta property="og:image" content="https://portfolio-me-w31y.vercel.app/og-image.png" />
-        
-        {/* Twitter */}
-        <meta property="twitter:card" content="summary_large_image" />
-        <meta property="twitter:url" content="https://portfolio-me-w31y.vercel.app/" />
-        <meta property="twitter:title" content="Anirban Santra - Full Stack Engineer" />
-        <meta property="twitter:description" content="Backend-focused engineer building scalable systems with Node.js, React, and microservices architecture." />
-        <meta property="twitter:image" content="https://portfolio-me-w31y.vercel.app/og-image.png" />
-        
-        {/* Additional SEO */}
-        <meta name="robots" content="index, follow" />
-        <meta name="language" content="English" />
-        <meta name="revisit-after" content="7 days" />
-        <link rel="canonical" content="https://portfolio-me-w31y.vercel.app/" />
-      </Helmet>
-
       <style>{`
         @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
         .animate-blink { animation: blink 1s step-end infinite; }
@@ -1723,8 +1519,6 @@ export default function App() {
           </div>
         </section>
 
-        <GitHubStatsSection />
-
         <ArchitectureSection />
         
         <ExperienceTimeline />
@@ -1752,7 +1546,7 @@ export default function App() {
                          <div className="text-white font-medium">{DATA.profile.email}</div>
                       </div>
                    </a>
-                   <a href="https://www.linkedin.com/in/anirban-santra-333074239/" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-3 bg-white/5 hover:bg-white/10 border border-gray-800 p-4 rounded-xl transition-all group">
+                   <a href="#" className="flex items-center justify-center gap-3 bg-white/5 hover:bg-white/10 border border-gray-800 p-4 rounded-xl transition-all group">
                       <Linkedin className="text-blue-400 group-hover:scale-110 transition-transform" />
                       <div className="text-left">
                          <div className="text-xs text-gray-500">Connect on</div>
