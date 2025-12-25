@@ -47,9 +47,16 @@ import {
   FileBadge,
   FileText,
   Eye,
-  FileKey
+  FileKey,
+  Edit,
+  Trash2,
+  Plus,
+  LogIn,
+  LogOut
 } from 'lucide-react';
 import { Helmet } from 'react-helmet-async';
+import { useAdmin } from './context/AdminContext';
+import { authAPI } from './services/api';
 
 /* --- DATA & CONTENT --- */
 const DATA = {
@@ -481,8 +488,26 @@ const DATA = {
 // --- COMPONENTS ---
 
 const Navbar = () => {
-  const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
+  const { isAdmin, login, logout } = useAdmin();
+  const [showLogin, setShowLogin] = useState(false);
+  const [password, setPassword] = useState('');
+
+  const handleLogin = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await authAPI.login('anirbansantra748@gmail.com', password);
+      if (response.data.success) {
+        login(response.data.token);
+        setShowLogin(false);
+        setPassword('');
+        alert('✅ Admin mode ON!');
+      }
+    } catch (error) {
+      alert('❌ Login failed!');
+    }
+  };
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
@@ -520,8 +545,39 @@ const Navbar = () => {
               <a href="#contact" className="bg-emerald-500 hover:bg-emerald-400 text-black px-4 py-2 rounded-md text-sm font-bold transition-transform hover:scale-105">
                 Hire Me
               </a>
+              {!isAdmin ? (
+                <button onClick={() => setShowLogin(true)} className="ml-4 text-gray-300 hover:text-emerald-400 px-3 py-2 rounded-md text-sm font-medium transition-colors flex items-center gap-2">
+                  <LogIn size={16} /> Admin
+                </button>
+              ) : (
+                <>
+                  <span className="ml-4 text-emerald-400 px-3 py-2 rounded-md text-xs font-bold flex items-center gap-2">
+                    <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span> ADMIN
+                  </span>
+                  <button onClick={() => { logout(); alert('Logged out'); }} className="ml-2 text-red-400 hover:text-red-300 px-3 py-2 rounded-md text-sm font-medium transition-colors flex items-center gap-2">
+                    <LogOut size={16} /> Logout
+                  </button>
+                </>
+              )}
             </div>
           </div>
+
+          {/* Login Modal */}
+          {showLogin && (
+            <div className="fixed inset-0 bg-black/90 backdrop-blur-sm z-50 flex items-center justify-center p-4" onClick={() => setShowLogin(false)}>
+              <div className="bg-[#111] border-2 border-emerald-500/50 rounded-xl p-6 max-w-sm w-full" onClick={(e) => e.stopPropagation()}>
+                <h3 className="text-xl font-bold text-white mb-4">Admin Login</h3>
+                <form onSubmit={handleLogin}>
+                  <input type="email" value="anirbansantra748@gmail.com" disabled className="w-full bg-black border border-gray-700 rounded px-3 py-2 text-gray-500 mb-3 text-sm" />
+                  <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Password" className="w-full bg-black border border-gray-700 rounded px-3 py-2 text-white mb-4 text-sm focus:outline-none focus:border-emerald-500" required autoFocus />
+                  <div className="flex gap-2">
+                    <button type="submit" className="flex-1 bg-emerald-500 hover:bg-emerald-400 text-black font-bold px-4 py-2 rounded text-sm">Login</button>
+                    <button type="button" onClick={() => setShowLogin(false)} className="px-4 py-2 bg-gray-700 hover:bg-gray-600 text-white rounded text-sm">Cancel</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          )}
 
           <div className="-mr-2 flex md:hidden">
             <button onClick={() => setIsOpen(!isOpen)} className="text-gray-400 hover:text-white p-2">
@@ -902,11 +958,33 @@ const GitHubStatsSection = () => {
   );
 };
 
-const ProjectCard = ({ project, index }) => (
+const ProjectCard = ({ project, index }) => {
+  const { isAdmin } = useAdmin();
+  
+  return (
   <div
     className="group relative bg-[#121212] rounded-2xl overflow-hidden border border-white/5 hover:border-emerald-500/50 transition-all duration-500 hover:shadow-[0_0_30px_rgba(16,185,129,0.1)] flex flex-col h-full"
     style={{ animationDelay: `${index * 100}ms` }}
   >
+    {/* Admin Controls */}
+    {isAdmin && (
+      <div className="absolute top-2 left-2 z-20 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+        <button 
+          onClick={() => alert(`Edit: ${project.title}`)}
+          className="p-2 bg-blue-500 hover:bg-blue-400 text-white rounded-lg shadow-lg transition-all hover:scale-110"
+          title="Edit Project"
+        >
+          <Edit size={16} />
+        </button>
+        <button 
+          onClick={() => confirm(`Delete ${project.title}?`) && alert('Delete functionality coming!')}
+          className="p-2 bg-red-500 hover:bg-red-400 text-white rounded-lg shadow-lg transition-all hover:scale-110"
+          title="Delete Project"
+        >
+          <Trash2 size={16} />
+        </button>
+      </div>
+    )}
     {/* Image Section */}
     <div className="h-48 bg-gray-900 relative overflow-hidden">
       <img 
@@ -967,7 +1045,8 @@ const ProjectCard = ({ project, index }) => (
       </div>
     </div>
   </div>
-);
+  );
+};
 
 // Updated Open Source Dashboard with "Matrix Grid" Style
 const OpenSourceDashboard = () => {
@@ -1695,7 +1774,21 @@ export default function App() {
                 <h2 className="text-3xl font-bold text-white mb-2">Featured <span className="text-emerald-400">Work</span></h2>
                 <p className="text-gray-400">Enterprise-grade applications serving real users.</p>
               </div>
-              <div className="flex bg-white/5 p-1 rounded-lg">
+              <div className="flex items-center gap-4">
+                {/* Admin Add Button */}
+                {(() => {
+                  const { isAdmin } = useAdmin();
+                  return isAdmin && (
+                    <button
+                      onClick={() => alert('Add New Project - Modal coming!')}
+                      className="px-4 py-2 bg-emerald-500 hover:bg-emerald-400 text-black font-bold rounded-lg flex items-center gap-2 shadow-lg transition-all hover:scale-105"
+                    >
+                      <Plus size={20} />
+                      Add Project
+                    </button>
+                  );
+                })()}
+                <div className="flex bg-white/5 p-1 rounded-lg">
                 <button 
                   onClick={() => setActiveTab('projects')}
                   className={`px-4 py-2 rounded-md text-sm font-medium transition-all ${activeTab === 'projects' ? 'bg-emerald-500 text-black shadow-lg' : 'text-gray-400 hover:text-white'}`}
@@ -1708,6 +1801,7 @@ export default function App() {
                 >
                   Open Source
                 </button>
+              </div>
               </div>
             </div>
 
